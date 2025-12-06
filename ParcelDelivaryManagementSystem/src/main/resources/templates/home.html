@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./home.css">
+</head>
+<body>
+       <div><h1 id="ProjectName"> Parcel Delivary Management System</h1></div>
+        <div id="manage">
+            <div class="buttons"><a href="http://localhost:2222/book">Book</a></div>
+            <div class="buttons"><a href="http://localhost:2222/track">Parcel Info</a></div>
+            <div class="buttons"><a href="http://localhost:2222/cancel">Cancel</a></div>
+            <div class="buttons"><a href="http://localhost:2222/update">update</a></div>
+        </div>
+        
+  <script th:inline="javascript">
+    var successMessage = /*[[${successBook}]]*/ null;
+    if (successMessage) {
+        alert(successMessage);
+    }
+</script>
+<script th:inline="javascript">
+    var deleteMessage = /*[[${delete}]]*/ null;
+    if (deleteMessage) {
+        alert(deleteMessage);
+    }
+</script>
+<script th:inline="javascript">
+    var updateMessage = /*[[${successUpdate}]]*/ null;
+    if (updateMessage) {
+        alert(updateMessage);
+    }
+</script>
+
+
+
+</body>
+</html>

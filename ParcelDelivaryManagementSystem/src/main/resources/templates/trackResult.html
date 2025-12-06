@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Parcel Details</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #5a60ff, #9a9dff);
+        }
+
+        .card {
+            width: 420px;
+            padding: 35px;
+            border-radius: 18px;
+            backdrop-filter: blur(14px);
+            background: rgba(255, 255, 255, 0.15);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            animation: pop 0.4s ease;
+        }
+
+        @keyframes pop {
+            from { transform: scale(0.94); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 28px;
+            letter-spacing: 0.5px;
+        }
+
+        .detail {
+            margin: 12px 0;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            font-size: 16px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .label {
+            font-weight: 600;
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 28px;
+            padding: 12px;
+            background: #ffffff;
+            color: #4f46e5;
+            border-radius: 10px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            background: #e6e6e6;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Parcel Details</h2>
+
+    <div class="detail">
+        <span class="label">Parcel ID:</span>
+        <span th:text="${parcel.id}"></span>
+    </div>
+
+    <div class="detail">
+        <span class="label">Name:</span>
+        <span th:text="${parcel.name}"></span>
+    </div>
+
+    <div class="detail">
+        <span class="label">Email:</span>
+        <span th:text="${parcel.email}"></span>
+    </div>
+
+    <div class="detail">
+        <span class="label">Pickup:</span>
+        <span th:text="${parcel.pick}"></span>
+    </div>
+
+    <div class="detail">
+        <span class="label">Source:</span>
+        <span th:text="${parcel.source}"></span>
+    </div>
+
+    <div class="detail">
+        <span class="label">Destination:</span>
+        <span th:text="${parcel.destination}"></span>
+    </div>
+
+    <div class="detail">
+        <span class="label">Weight:</span>
+        <span th:text="${parcel.weight}"></span>
+    </div>
+
+    <a href="/">Go Home</a>
+</div>
+
+</body>
+</html>
