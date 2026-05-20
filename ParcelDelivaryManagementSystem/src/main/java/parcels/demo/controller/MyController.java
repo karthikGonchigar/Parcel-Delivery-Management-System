@@ -33,7 +33,7 @@ public class MyController {
 		return "home";
 	}
 	
-	// TO Order The Parcel
+	// ************************************** to Book Parcel *************************************************
 	
 	@GetMapping("/book")
     public String book(Model model) {
@@ -81,8 +81,11 @@ public class MyController {
     }
     
     
+    // *********************************************************************************************************
     
-    // To View the Parcel Details
+    
+    // ********************************** TO View the Parcel Details *******************************************
+    
     @GetMapping("/track")
     public String trackPage(Model model) {
         return "track";
@@ -109,8 +112,11 @@ public class MyController {
         return "trackResult";
     }   
     
+    // *************************************************************************************************************
     
-    // for Cancel the Parcel
+    
+    // *************************************** To cancel The Parcel ************************************************
+    
     @GetMapping("/cancel")
     public String cancelPage() {
         return "cancel"; 
@@ -146,16 +152,17 @@ public class MyController {
         return "home";
     }
 
+    //*****************************************************************************************************
     
-    // updation
+    
+    // ************************************* To Update The Parcel *****************************************
+    
     @GetMapping("/update")
     public String updatePage() {
         return "updateLogin";
     }
     @PostMapping("/updateverify")
-    public String verifyUpdate(@RequestParam int id,
-                               @RequestParam String password,
-                               Model model) {
+    public String verifyUpdate(@RequestParam int id, @RequestParam String password, Model model) {
 
         Optional<Parcels> parcelOpt = repository.findById(id);
 
@@ -165,7 +172,7 @@ public class MyController {
             model.addAttribute("password", password); // keep entered password
             return "updateLogin";
         }
-
+        
         Parcels parcel = parcelOpt.get();
 
         if (!parcel.getPassword().equals(password)) {
@@ -180,16 +187,12 @@ public class MyController {
     }
 
     @PostMapping("/updateparcel")
-    public String updateParcel(@Valid @ModelAttribute("parcels") Parcels parcel,
-                               BindingResult result,
-                               Model model) {
+    public String updateParcel(@Valid @ModelAttribute("parcels") Parcels parcel,BindingResult result, Model model) {
 
         if (result.hasErrors()) {
             return "updateForm";
         }
-
         repository.save(parcel);
-
         model.addAttribute("successUpdate", 
             "Parcel updated successfully!");
         String subject = "Parcel Updated Succesfully!";
@@ -201,6 +204,7 @@ public class MyController {
         return "home";
     }
 
+    //*****************************************************************************************************************
 
 
     
